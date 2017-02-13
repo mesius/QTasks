@@ -35,6 +35,7 @@ public class TaskDetailFragment extends Fragment {
     //private ImageView mAvatar;
     private TextView mSummary;
     private TextView mCategory;
+    private TextView mDescription;
     private TextView mDate;
     private TextView mTitle;
     private TextView mDone;
@@ -75,8 +76,9 @@ public class TaskDetailFragment extends Fragment {
         //mCollapsingView = (CollapsingToolbarLayout) getActivity().findViewById(R.id.toolbar_layout);
         //mAvatar = (ImageView) getActivity().findViewById(R.id.iv_avatar);
         mTitle = (TextView) root.findViewById(R.id.tv_title);
-        mSummary = (TextView) root.findViewById(R.id.tv_summary);
-        mCategory = (TextView) root.findViewById(R.id.tv_category);
+        mDescription = (TextView) root.findViewById(R.id.tv_description);
+        //mSummary = (TextView) root.findViewById(R.id.tv_summary);
+        //mCategory = (TextView) root.findViewById(R.id.tv_category);
         mDate = (TextView) root.findViewById(R.id.tv_date);
         mDone = (TextView) root.findViewById(R.id.tv_done);
 
@@ -122,8 +124,9 @@ public class TaskDetailFragment extends Fragment {
           //      .centerCrop()
             //    .into(mAvatar);
         mTitle.setText(task.getTitle());
-        mSummary.setText(task.getSummary());
-        mCategory.setText(task.getCategory());
+        //mSummary.setText(task.getSummary());
+        //mCategory.setText(task.getCategory());
+        mDescription.setText(task.getDescription());
         mDate.setText(task.getDate());
         mDone.setText(task.getDone());
     }
@@ -144,12 +147,12 @@ public class TaskDetailFragment extends Fragment {
 
     private void showLoadError() {
         Toast.makeText(getActivity(),
-                "Error al cargar información", Toast.LENGTH_SHORT).show();
+                "Error loading data", Toast.LENGTH_SHORT).show();
     }
 
     private void showDeleteError() {
         Toast.makeText(getActivity(),
-                "Error al eliminar abogado", Toast.LENGTH_SHORT).show();
+                "Error deleting task", Toast.LENGTH_SHORT).show();
     }
 
     private class GetTaskByIdTask extends AsyncTask<Void, Void, Cursor> {

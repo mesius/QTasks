@@ -68,6 +68,8 @@ public class TasksFragment extends Fragment {
         mTasksAdapter = new TasksCursorAdapter(getActivity(), null);
         mAddButton = (FloatingActionButton) getActivity().findViewById(R.id.fab);
 
+
+
         // Setup
         mTasksList.setAdapter(mTasksAdapter);
 
@@ -175,7 +177,7 @@ public class TasksFragment extends Fragment {
 
     private void showSuccessfullSavedMessage() {
         Toast.makeText(getActivity(),
-                "Task guardado correctamente", Toast.LENGTH_SHORT).show();
+                "Task saved", Toast.LENGTH_SHORT).show();
     }
 
     private void showAddScreen() {

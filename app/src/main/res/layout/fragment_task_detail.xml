@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="72dp"
+    android:layout_marginLeft="16dp"
     android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
     tools:context="com.actionis.qtasks.taskdetail.TaskDetailFragment">
@@ -24,7 +24,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         tools:text="Sample title" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -52,7 +52,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:text="Abogado penalista" />
+        tools:text="Abogado penalista" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Description"
+        android:textColor="?colorPrimary" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:text="300 20 1111" />
 
     <TextView
         android:layout_width="wrap_content"

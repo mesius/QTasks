@@ -10,8 +10,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_task_detail">TaskDetailActivity</string>
-    <string name="title_activity_add_edit_task">AddEditTaskActivity</string>
+    <string name="title_activity_task_detail">Task Detail</string>
+    <string name="title_activity_add_edit_task">Edit Task</string>
 
-    <string name="field_error">Ingresa un valor</string>
+    <string name="field_error">Enter a value</string>
 </resources>

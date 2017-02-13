@@ -77,12 +77,12 @@ public class AddEditTaskFragment extends Fragment {
         // Referencias UI
         mSaveButton = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         mTitleField = (TextInputEditText) root.findViewById(R.id.et_title);
-        mCategoryField = (TextInputEditText) root.findViewById(R.id.et_category);
-        mSummaryField = (TextInputEditText) root.findViewById(R.id.et_summary);
+        //mCategoryField = (TextInputEditText) root.findViewById(R.id.et_category);
+        //mSummaryField = (TextInputEditText) root.findViewById(R.id.et_summary);
         mDescriptionField = (TextInputEditText) root.findViewById(R.id.et_description);
         mTitleLabel = (TextInputLayout) root.findViewById(R.id.til_title);
-        mCategoryLabel = (TextInputLayout) root.findViewById(R.id.til_category);
-        mSummaryLabel = (TextInputLayout) root.findViewById(R.id.til_summary);
+        //mCategoryLabel = (TextInputLayout) root.findViewById(R.id.til_category);
+        //mSummaryLabel = (TextInputLayout) root.findViewById(R.id.til_summary);
         mDescriptionLabel = (TextInputLayout) root.findViewById(R.id.til_description);
 
         mDoneField = (CheckBox) root.findViewById(R.id.et_done);
@@ -105,7 +105,7 @@ public class AddEditTaskFragment extends Fragment {
         mDoneField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s = "Estado: " + (mDoneField.isChecked() ? "Marcado" : "No Marcado");
+                String s = "Status: " + (mDoneField.isChecked() ? "Checked" : "No checked");
                 Toast.makeText(getActivity(), s, Toast.LENGTH_LONG).show();
             }
         });
@@ -124,8 +124,10 @@ public class AddEditTaskFragment extends Fragment {
         boolean error = false;
 
         String title = mTitleField.getText().toString();
-        String category = mCategoryField.getText().toString();
-        String summary = mSummaryField.getText().toString();
+        //String category = mCategoryField.getText().toString();
+        String category = "Default";
+        //String summary = mSummaryField.getText().toString();
+        String summary = "";
         String description = mDescriptionField.getText().toString();
         String date = "";
         String done = "";
@@ -134,7 +136,7 @@ public class AddEditTaskFragment extends Fragment {
             mTitleLabel.setError(getString(R.string.field_error));
             error = true;
         }
-
+/*
         if (TextUtils.isEmpty(category)) {
             mCategoryLabel.setError(getString(R.string.field_error));
             error = true;
@@ -144,7 +146,7 @@ public class AddEditTaskFragment extends Fragment {
             mSummaryLabel.setError(getString(R.string.field_error));
             error = true;
         }
-
+*/
 
         if (TextUtils.isEmpty(description)) {
             mDescriptionLabel.setError(getString(R.string.field_error));
@@ -186,13 +188,13 @@ public class AddEditTaskFragment extends Fragment {
 
     private void showAddEditError() {
         Toast.makeText(getActivity(),
-                "Error al agregar nueva información", Toast.LENGTH_SHORT).show();
+                "Error adding information", Toast.LENGTH_SHORT).show();
     }
 
-    private void showLawyer(Task task) {
+    private void showTask(Task task) {
         mTitleField.setText(task.getTitle());
-        mCategoryField.setText(task.getCategory());
-        mSummaryField.setText(task.getSummary());
+        //mCategoryField.setText(task.getCategory());
+        //mSummaryField.setText(task.getSummary());
         mDescriptionField.setText(task.getDescription());
         String tmpDone = task.getDone();
         //if (tmpDone == "Yes") {
@@ -205,7 +207,7 @@ public class AddEditTaskFragment extends Fragment {
 
     private void showLoadError() {
         Toast.makeText(getActivity(),
-                "Error al editar abogado", Toast.LENGTH_SHORT).show();
+                "Error editing task", Toast.LENGTH_SHORT).show();
     }
 
     private class GetTaskByIdTask extends AsyncTask<Void, Void, Cursor> {
@@ -218,7 +220,7 @@ public class AddEditTaskFragment extends Fragment {
         @Override
         protected void onPostExecute(Cursor cursor) {
             if (cursor != null && cursor.moveToLast()) {
-                showLawyer(new Task(cursor));
+                showTask(new Task(cursor));
             } else {
                 showLoadError();
                 getActivity().setResult(Activity.RESULT_CANCELED);
